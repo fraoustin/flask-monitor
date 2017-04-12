@@ -121,9 +121,15 @@ class Monitor(Blueprint):
 
 class ObserverMetrics(object):
 
-    def __init__(self, filter=everyTrue, logger='werkzeug'):
+    def __init__(self, filter=everyTrue, logger=None):
         self._filter = filter
-        self._logger = logger
+        if logger == None:
+            self._logger = 'werkzeug'
+            for i in logging.Logger.manager.loggerDict:
+                if logging.Logger.manager.loggerDict[i] == current_app.logger:
+                    self._logger = i
+        else:
+            self._logger = logger
 
     def __call__(self, event):
         logging.getLogger(self._logger).debug('intercept event')
