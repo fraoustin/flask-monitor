@@ -7,12 +7,12 @@
 import os
 from setuptools import setup, find_packages
 
-import flask_monitor
+import flask_monitor as mypkg
 
-NAME = "flask-monitor"
-VERSION = flask_monitor.__version__
-DESC = "Flask Monitor module"
-URLPKG = "https://github.com/fraoustin/flask-monitor.git"
+NAME = mypkg.__name__
+VERSION = mypkg.__version__
+DESC = mypkg.__desc__
+URLPKG = mypkg.__urlpkg__
 
 HERE = os.path.abspath(os.path.dirname(__file__))
 
@@ -43,5 +43,6 @@ setup(
     include_package_data=True,
     install_requires=REQUIRED,
     url=URLPKG,
-    classifiers=CLASSIFIED
+    classifiers=CLASSIFIED,
+    entry_points=mypkg.__entry_points__
 )
