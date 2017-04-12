@@ -5,3 +5,5 @@ __pycache__
 /dist
 /tests
 /*.egg-info
+# ignore file swp vi
+*.swp

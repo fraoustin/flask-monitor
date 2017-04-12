@@ -5,3 +5,4 @@ include AUTHORS.txt
 include REQUIREMENTS.txt
 include CLASSIFIERS.txt
 recursive-include flask_monitor *.*
+exclude test
