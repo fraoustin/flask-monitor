@@ -9,7 +9,7 @@ from setuptools import setup, find_packages
 
 import flask_monitor as mypkg
 
-NAME = mypkg.__name__
+NAME = mypkg.__namepkg__
 VERSION = mypkg.__version__
 DESC = mypkg.__desc__
 URLPKG = mypkg.__urlpkg__
