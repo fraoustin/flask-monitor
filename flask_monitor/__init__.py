@@ -5,10 +5,10 @@
     Module flask_monitor
 """
 
-__version_info__ = (0, 1, 1)
+__version_info__ = (0, 1, 3)
 __version__ = '.'.join([str(val) for val in __version_info__])
 
-__name__ = "flask-monitor"
+__namepkg__ = "flask-monitor"
 __desc__ = "Flask Monitor module"
 __urlpkg__ = "https://github.com/fraoustin/flask-monitor.git"
 __entry_points__ = {}
