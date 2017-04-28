@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-import logging
-
 def toflat(obj, ns=""):
     res = {}
     for key in obj:

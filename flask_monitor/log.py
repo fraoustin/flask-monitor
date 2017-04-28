@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from flask_monitor import ObserverMetrics
-import logging
 
 class ObserverLog(ObserverMetrics):
 
@@ -10,5 +9,5 @@ class ObserverLog(ObserverMetrics):
         self._format = format
 
     def action(self, event):
-        logging.getLogger(self._logger).error(self._format.format(**event.flat))
+        self.logger.info(self._format.format(**event.flat))
 
