@@ -123,16 +123,16 @@ class ObserverMetrics(object):
 
     def __init__(self, filter=everyTrue, logger=None):
         self._filter = filter
-        if logger == None:
-            self._logger = 'werkzeug'
-            for i in logging.Logger.manager.loggerDict:
-                if logging.Logger.manager.loggerDict[i] == current_app.logger:
-                    self._logger = i
-        else:
-            self._logger = logger
+        self._logger = logger
+    
+    @property
+    def logger(self):
+        if self._logger == None:
+            return current_app.logger
+        return self._logger
 
     def __call__(self, event):
-        logging.getLogger(self._logger).debug('intercept event')
+        self.logger.debug('intercept event')
         if self._filter(event):
             self.action(event)
 

@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from flask_monitor import ObserverMetrics
-import logging
 
 from influxdb import InfluxDBClient
 from influxdb.client import InfluxDBClientError
@@ -25,7 +24,7 @@ class ObserverInfluxdb(ObserverMetrics):
                                 password=password,
                                 database=db)
         except InfluxDBClientError:
-            logging.getLogger(self._logger).critical("Cannot connect to InfluxDB database '%s'" % db)
+            self.logger.critical("Cannot connect to InfluxDB database '%s'" % db)
         
 
     def action(self, event):
@@ -35,8 +34,8 @@ class ObserverInfluxdb(ObserverMetrics):
             data[0]['fields'] = {"value" : event.timing}
             self.db.write_points(data)
         except InfluxDBClientError as e:
-            logging.getLogger(self._logger).critical("Error InfluxDB '%s'" % str(e))
+            self.logger.critical("Error InfluxDB '%s'" % str(e))
         except Exception as e:
-            logging.getLogger(self._logger).critical("Error Unknow on InfluxDB '%s'" % str(e))
+            self.logger.critical("Error Unknow on InfluxDB '%s'" % str(e))
             
 

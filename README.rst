@@ -33,6 +33,7 @@ Usage
 
     from flask import Flask, request
     from flask_monitor import Monitor , ObserverLog
+    import logging
 
     app = Flask(__name__)
     monitor = Monitor('monitor', __name__)
@@ -44,6 +45,9 @@ Usage
         return "Hello World!"
 
     if __name__ == "__main__":
+        app.logger.setLevel(logging.INFO)
+        for h in app.logger.handlers:
+            h.setLevel(logging.INFO)         
         app.run(port=8080)
 
 You can add a filter of event

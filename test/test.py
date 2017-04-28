@@ -1,5 +1,5 @@
 
-from flask import Flask, request
+from flask import Flask, request, current_app
 from flask_monitor import Monitor , ObserverMetrics
 from flask_monitor import ObserverLog
 
@@ -26,15 +26,15 @@ app.register_blueprint(monitor)
 #metric.add_observer(myeventlog())
 monitor.add_observer(ObserverLog())
 
-from flask_monitor.influxdb import ObserverInfluxdb
-monitor.add_observer(ObserverInfluxdb(host='127.0.0.1',
-                                    port=8086,
-                                    user='root',
-                                    password='root',
-                                    db='mydb'))
+#from flask_monitor.influxdb import ObserverInfluxdb
+#monitor.add_observer(ObserverInfluxdb(host='127.0.0.1',
+#                                    port=8086,
+#                                    user='root',
+#                                    password='root',
+#                                    db='mydb'))
 
-from flask_monitor.rabbitmq import ObserverRabbit
-import pika
+#from flask_monitor.rabbitmq import ObserverRabbit
+#import pika
 
 #monitor.add_observer(ObserverRabbit(host='127.0.0.1',
 #                            credentials = pika.PlainCredentials('guest', 'guest')))
@@ -59,4 +59,7 @@ def coucou(location=None):
     return  location
 
 if __name__ == "__main__":
+    app.logger.setLevel(logging.INFO)
+    for h in app.logger.handlers:
+        h.setLevel(logging.INFO)         
     app.run(port=8080)

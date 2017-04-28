@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from flask_monitor import ObserverMetrics
-import logging
 
 import statsd
 
@@ -21,13 +20,13 @@ class ObserverStatsd(ObserverMetrics):
             
             self.client = statsd.StatsClient(**kw_statsd)
         except Exception as e:
-            logging.getLogger(self._logger).critical("Cannot connect to Statsd '%s'" % str(e))
+            self.logger.critical("Cannot connect to Statsd '%s'" % str(e))
         
 
     def action(self, event):
         try:
             self.client.timing(self._format.format(**event.flat), event.delta)
         except Exception as e:
-            logging.getLogger(self._logger).critical("Error Unknow on Statsd '%s'" % str(e))
+            self.logger.critical("Error Unknow on Statsd '%s'" % str(e))
             
 

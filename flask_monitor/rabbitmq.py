@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from flask_monitor import ObserverMetrics
-import logging
 
 import pika
 
@@ -30,11 +29,11 @@ class ObserverRabbit(ObserverMetrics):
             try:
                 self.channel.exchange_declare(exchange=exchange,
                                                type='fanout')
-                logging.getLogger(self._logger).debug("Create channel RabbitMq '%s'" % exchange)
+                self.logger.debug("Create channel RabbitMq '%s'" % exchange)
             except:
-                logging.getLogger(self._logger).debug("Not create channel RabbitMq '%s'" % exchange)
+                self.logger.debug("Not create channel RabbitMq '%s'" % exchange)
         except Exception as e:
-            logging.getLogger(self._logger).critical("Cannot connect to RabbitMq '%s'" % str(e))
+            self.logger.critical("Cannot connect to RabbitMq '%s'" % str(e))
         
 
     def action(self, event):
@@ -43,6 +42,6 @@ class ObserverRabbit(ObserverMetrics):
                                   routing_key=self.routing_key,
                                   body=event.json)
         except Exception as e:
-            logging.getLogger(self._logger).critical("Error Unknow on RabbitMq '%s'" % str(e))
+            self.logger.critical("Error Unknow on RabbitMq '%s'" % str(e))
             
 
