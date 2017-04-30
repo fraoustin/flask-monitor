@@ -5,7 +5,7 @@
     Module flask_monitor
 """
 
-__version_info__ = (0, 2, 0)
+__version_info__ = (0, 2, 1)
 __version__ = '.'.join([str(val) for val in __version_info__])
 
 __namepkg__ = "flask-monitor"
