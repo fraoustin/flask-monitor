@@ -141,12 +141,13 @@ class ObserverMetrics(object):
 
 
 def start_event():
+    current_app.logger.debug("start request %s" % request.url)
     request._stats_start_event = time()
-
 
 def stop_event(response):
     stop = time()
     delta = stop - request._stats_start_event
+    current_app.logger.debug("stop request %s" % request.url)
     Monitor().add_metric(Event(response, request, delta))
     return response
 

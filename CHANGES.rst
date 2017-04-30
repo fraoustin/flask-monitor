@@ -1,3 +1,8 @@
+V. 0.2.1
+========
+
+- add logger debug for start end finish request
+
 V. 0.2.0
 ========
 
