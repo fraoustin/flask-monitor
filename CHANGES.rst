@@ -1,3 +1,9 @@
+V. 0.2.3
+========
+
+- correction setup.py by sujaymansingh
+
+
 V. 0.2.2
 ========
 
