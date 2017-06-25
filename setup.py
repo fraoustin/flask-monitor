@@ -7,12 +7,13 @@
 import os
 from setuptools import setup, find_packages
 
-import flask_monitor as mypkg
+__version_info__ = (0, 2, 2)
+__version__ = '.'.join([str(val) for val in __version_info__])
 
-NAME = mypkg.__namepkg__
-VERSION = mypkg.__version__
-DESC = mypkg.__desc__
-URLPKG = mypkg.__urlpkg__
+__namepkg__ = "flask-monitor"
+__desc__ = "Flask Monitor module"
+__urlpkg__ = "https://github.com/fraoustin/flask-monitor.git"
+__entry_points__ = {}
 
 HERE = os.path.abspath(os.path.dirname(__file__))
 
@@ -33,16 +34,16 @@ with open('AUTHORS.txt') as f:
     AUTHORS_EMAIL = ','.join([i.split('::')[1] for i in DATA])
 
 setup(
-    name=NAME,
-    version=VERSION,
+    name=__namepkg__,
+    version=__version__,
     packages=find_packages(),
     author=AUTHORS,
     author_email=AUTHORS_EMAIL,
-    description=DESC,
+    description=__desc__,
     long_description=LONG_DESC,
     include_package_data=True,
     install_requires=REQUIRED,
-    url=URLPKG,
+    url=__urlpkg__,
     classifiers=CLASSIFIED,
-    entry_points=mypkg.__entry_points__
+    entry_points=__entry_points__
 )
