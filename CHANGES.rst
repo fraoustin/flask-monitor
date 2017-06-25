@@ -1,3 +1,8 @@
+V. 0.2.2
+========
+
+- correction statd by sujaymansingh
+
 V. 0.2.1
 ========
 
