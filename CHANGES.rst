@@ -1,3 +1,8 @@
+V. 0.2.4
+========
+
+- Add ssl, verify_ssl as options for ObserverInfluxdb 
+
 V. 0.2.3
 ========
 

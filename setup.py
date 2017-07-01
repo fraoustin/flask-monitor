@@ -7,7 +7,7 @@
 import os
 from setuptools import setup, find_packages
 
-__version_info__ = (0, 2, 3)
+__version_info__ = (0, 2, 4)
 __version__ = '.'.join([str(val) for val in __version_info__])
 
 __namepkg__ = "flask-monitor"
