@@ -1,2 +1,2 @@
-flask
-six
+Flask>=0.9
+six>=1.10.0
