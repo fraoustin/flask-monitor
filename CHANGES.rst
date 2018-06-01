@@ -1,3 +1,8 @@
+V. 0.2.6
+========
+
+- hotfix Issue#5 manage import influxdb
+
 V. 0.2.5
 ========
 

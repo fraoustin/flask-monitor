@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+from __future__ import absolute_import
 from flask_monitor import ObserverMetrics
 
 from influxdb import InfluxDBClient
